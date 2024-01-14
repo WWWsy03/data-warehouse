@@ -1,0 +1,69 @@
+CREATE TABLE Movie (
+    movie_id INT,
+    movie_name STRING,
+    release_time_id INT,
+    time STRING,
+    Type STRING
+)
+CLUSTERED BY (movie_id) INTO 10 BUCKETS
+STORED AS PARQUET;
+
+CREATE TABLE MovieActor (
+    movie_id INT,
+    actor_name STRING
+)
+STORED AS PARQUET;
+
+CREATE TABLE MovieDirector (
+    movie_id INT,
+    director_name STRING
+)
+STORED AS PARQUET;
+CREATE TABLE MovieProduct (
+    movie_id INT,
+    product_id STRING
+)
+STORED AS PARQUET;
+
+CREATE TABLE StaticActorActor (
+    actor_name1 STRING,
+    actor_name2 STRING,
+    collaboration_number INT
+)
+STORED AS PARQUET;
+
+
+CREATE TABLE StaticDirectorActor (
+    director_name STRING,
+    actor_name STRING,
+    collaboration_number INT
+)
+STORED AS PARQUET;
+
+CREATE TABLE StaticDirectorDirector (
+    director_name1 STRING,
+    director_name2 STRING,
+    collaboration_number INT
+)
+STORED AS PARQUET;
+
+CREATE TABLE Time (
+    release_time_id INT,
+    year INT,
+    month INT,
+    day INT,
+    week STRING,
+    season INT,
+    movie_number INT
+)
+STORED AS PARQUET;
+
+CREATE TABLE Product (
+    product_id STRING,
+    comment_number INT,
+    cost STRING,
+    format STRING,
+    grade STRING
+)
+CLUSTERED BY (product_id) INTO 10 BUCKETS
+STORED AS PARQUET;
